@@ -94,7 +94,7 @@ export function getPersonalityDetails(
       name: "Human First",
       tagline: "Empatični lideri fokusirani na ljude",
       advantage:
-        "Ti si srce svakog tima. Empatija, razumevanje i podrška tvoja su supermoć — znaš kako da spojiš ljude, smiriš situaciju i motivišeš druge da daju najbolje od sebe. Za tebe, napredak nikada nije samo u brojkama — već u ljudima koji stoje iza njih",
+        "Ti si srce svakog tima. Empatija, razumevanje i podrška tvoja su supermoć — znaš kako da spojiš ljude, smiriš situaciju i motivišeš druge da daju najbolje od sebe. Za tebe, napredak nikada nije samo u brojkama — već u ljudima koji stoje iza njih.",
       shift:
         "Ne zaboravi da i tvoja energija zaslužuje “recharge”. Dok brineš o drugima, napravi prostora i za sebe.",
       color: "var(--a1-magenta)",

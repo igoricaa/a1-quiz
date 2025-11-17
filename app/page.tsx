@@ -90,12 +90,6 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         currentStep: "cta",
       };
 
-    case "GO_BACK_TO_RESULT":
-      return {
-        ...state,
-        currentStep: "result",
-      };
-
     case "RESET_QUIZ":
       return initialState;
 
@@ -125,10 +119,6 @@ export default function Home() {
 
   const handleContinue = () => {
     dispatch({ type: "SHOW_CTA" });
-  };
-
-  const handleBackToResult = () => {
-    dispatch({ type: "GO_BACK_TO_RESULT" });
   };
 
   return (
@@ -161,8 +151,7 @@ export default function Home() {
           <CTAScreen
             key="cta"
             onRestart={handleRestart}
-            onGoBack={handleBackToResult}
-            autoResetDelay={180000} // 3 minutes
+            autoResetDelay={60000} // 1 minute
           />
         )}
       </AnimatePresence>

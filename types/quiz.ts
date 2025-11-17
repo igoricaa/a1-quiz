@@ -75,7 +75,6 @@ export type QuizAction =
   | { type: "ANSWER_QUESTION"; payload: PersonalityType }
   | { type: "GO_BACK" }
   | { type: "SHOW_CTA" }
-  | { type: "GO_BACK_TO_RESULT" }
   | { type: "RESET_QUIZ" };
 
 /**

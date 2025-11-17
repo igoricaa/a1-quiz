@@ -3,20 +3,18 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { Mail, ChevronLeft } from "lucide-react";
+import { Mail } from "lucide-react";
 import GridGraphic from "../GridGraphic";
 import LogoHeader from "../LogoHeader";
 
 interface CTAScreenProps {
   onRestart: () => void;
-  onGoBack: () => void;
   autoResetDelay?: number; // in milliseconds
 }
 
 export function CTAScreen({
   onRestart,
-  onGoBack,
-  autoResetDelay = 180000, // 3 minutes default
+  autoResetDelay = 60000, // 1 minute default
 }: CTAScreenProps) {
   const [countdown, setCountdown] = useState<number | null>(null);
 
@@ -109,30 +107,6 @@ export function CTAScreen({
           Ponovo
         </Button>
       </motion.div>
-
-      {/* Back Button */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.3 }}
-        className="mt-8"
-      >
-        <Button onClick={onGoBack} variant="ghost">
-          <ChevronLeft className="h-5 w-5" />
-          Nazad
-        </Button>
-      </motion.div>
-
-      {/* Countdown indicator */}
-      {countdown !== null && countdown > 0 && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="mt-4 text-sm text-muted-foreground md:text-base"
-        >
-          Automatski restart za {countdown}s
-        </motion.p>
-      )}
     </motion.div>
   );
 }
