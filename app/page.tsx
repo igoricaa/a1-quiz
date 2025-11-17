@@ -2,12 +2,7 @@
 
 import { useReducer } from "react";
 import { AnimatePresence } from "motion/react";
-import type {
-  QuizState,
-  QuizAction,
-  PersonalityType,
-  Score,
-} from "@/types/quiz";
+import type { QuizState, QuizAction, PersonalityType } from "@/types/quiz";
 import { QUESTIONS, TOTAL_QUESTIONS } from "@/data/questions";
 import { calculateResult, calculateScore } from "@/lib/quiz-logic";
 import { WelcomeScreen } from "@/components/quiz/WelcomeScreen";
@@ -95,6 +90,12 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         currentStep: "cta",
       };
 
+    case "GO_BACK_TO_RESULT":
+      return {
+        ...state,
+        currentStep: "result",
+      };
+
     case "RESET_QUIZ":
       return initialState;
 
@@ -126,8 +127,12 @@ export default function Home() {
     dispatch({ type: "SHOW_CTA" });
   };
 
+  const handleBackToResult = () => {
+    dispatch({ type: "GO_BACK_TO_RESULT" });
+  };
+
   return (
-    <main className="h-screen bg-background">
+    <main className="h-screen bg-background overflow-hidden">
       <AnimatePresence mode="wait">
         {state.currentStep === "welcome" && (
           <WelcomeScreen key="welcome" onStart={handleStart} />
@@ -156,6 +161,7 @@ export default function Home() {
           <CTAScreen
             key="cta"
             onRestart={handleRestart}
+            onGoBack={handleBackToResult}
             autoResetDelay={180000} // 3 minutes
           />
         )}

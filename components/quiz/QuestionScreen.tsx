@@ -6,7 +6,8 @@ import type { Question, PersonalityType } from "@/types/quiz";
 import { useState } from "react";
 import { ProgressIndicator } from "./ProgressIndicator";
 import { ChevronLeft } from "lucide-react";
-import Image from "next/image";
+import LogoHeader from "../LogoHeader";
+import GridGraphic from "../GridGraphic";
 
 interface QuestionScreenProps {
   question: Question;
@@ -64,20 +65,8 @@ export function QuestionScreen({
         </h2>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-        className="size-24 3xl:size-40 absolute top-5 left-5"
-      >
-        <Image
-          src="/a1-logo.png"
-          alt="A1 Logo"
-          fill
-          className="object-contain"
-          priority
-        />
-      </motion.div>
+      <LogoHeader />
+      <GridGraphic />
 
       {/* Answer Buttons */}
       <div className="flex w-full max-w-4xl flex-col gap-4">
@@ -125,31 +114,18 @@ export function QuestionScreen({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.3 }}
+        className="mt-8"
       >
         <Button
           onClick={onGoBack}
           disabled={isTransitioning}
           variant="ghost"
-          size="sm"
-          className="tap-target mt-4 gap-2 text-lg font-medium disabled:opacity-50"
+          className="disabled:opacity-50"
         >
           <ChevronLeft className="h-5 w-5" />
           Nazad
         </Button>
       </motion.div>
-
-      {/* Decorative gradient */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          className="absolute right-0 top-1/4 h-96 w-96 rounded-full blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(226, 0, 116, 0.4) 0%, rgba(226, 0, 116, 0) 70%)",
-          }}
-        />
-      </div>
     </motion.div>
   );
 }

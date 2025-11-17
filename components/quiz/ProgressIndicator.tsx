@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 
 interface ProgressIndicatorProps {
   current: number;
@@ -9,7 +9,7 @@ interface ProgressIndicatorProps {
 
 export function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
   return (
-    <div className="absolute right-8 top-8 md:right-12 md:top-12">
+    <div className="absolute right-8 top-8 md:right-12 md:top-12 z-2">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -35,8 +35,8 @@ export function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
               transition={{ delay: index * 0.05, duration: 0.2 }}
               className={`h-2.5 w-2.5 rounded-full transition-all ${
                 index < current
-                  ? 'bg-primary scale-110'
-                  : 'bg-muted-foreground/30'
+                  ? "bg-primary scale-110"
+                  : "bg-muted-foreground/30"
               }`}
             />
           ))}

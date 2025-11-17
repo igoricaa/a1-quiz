@@ -39,7 +39,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="font-serif text-7xl font-bold leading-tight tracking-tight md:text-8xl lg:text-9xl 3xl:text-[200px]"
+          className="font-serif text-7xl font-bold leading-tight md:text-8xl lg:text-9xl 3xl:text-[200px]"
           style={{
             background:
               "linear-gradient( 90deg, rgba(70, 0, 0, 1) 0%, rgba(87, 16, 11, 1) 10%, var(--a1-magenta) 60% )",
@@ -66,30 +66,11 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.4 }}
+        className="mt-4"
       >
-        <Button
-          onClick={onStart}
-          size="lg"
-          className="tap-target rounded-2xl bg-primary px-16 py-8 text-2xl font-bold uppercase tracking-wide transition-all md:px-20 md:py-10 md:text-3xl"
-        >
+        <Button onClick={onStart} size="lg">
           Počni kviz
         </Button>
-      </motion.div>
-
-      {/* Decorative gradient blob */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-      >
-        <div
-          className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(226, 0, 116, 0.3) 0%, rgba(226, 0, 116, 0) 70%)",
-          }}
-        />
       </motion.div>
     </motion.div>
   );
