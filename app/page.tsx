@@ -1,65 +1,165 @@
-import Image from "next/image";
+"use client";
+
+import { useReducer } from "react";
+import { AnimatePresence } from "motion/react";
+import type {
+  QuizState,
+  QuizAction,
+  PersonalityType,
+  Score,
+} from "@/types/quiz";
+import { QUESTIONS, TOTAL_QUESTIONS } from "@/data/questions";
+import { calculateResult, calculateScore } from "@/lib/quiz-logic";
+import { WelcomeScreen } from "@/components/quiz/WelcomeScreen";
+import { QuestionScreen } from "@/components/quiz/QuestionScreen";
+import { ResultScreen } from "@/components/quiz/ResultScreen";
+import { CTAScreen } from "@/components/quiz/CTAScreen";
+
+// Initial state
+const initialState: QuizState = {
+  currentStep: "welcome",
+  currentQuestionIndex: 0,
+  answers: [],
+  score: {
+    INOVATOR: 0,
+    ORGANIZATOR: 0,
+    HUMAN_FIRST: 0,
+    STRATEG: 0,
+  },
+  result: null,
+};
+
+// Reducer function
+function quizReducer(state: QuizState, action: QuizAction): QuizState {
+  switch (action.type) {
+    case "START_QUIZ":
+      return {
+        ...state,
+        currentStep: "question",
+        currentQuestionIndex: 0,
+        answers: [],
+        score: {
+          INOVATOR: 0,
+          ORGANIZATOR: 0,
+          HUMAN_FIRST: 0,
+          STRATEG: 0,
+        },
+        result: null,
+      };
+
+    case "ANSWER_QUESTION": {
+      const newAnswers = [...state.answers, action.payload];
+      const newScore = calculateScore(newAnswers);
+      const isLastQuestion = state.currentQuestionIndex === TOTAL_QUESTIONS - 1;
+
+      if (isLastQuestion) {
+        // Calculate final result
+        const result = calculateResult(newAnswers);
+        return {
+          ...state,
+          answers: newAnswers,
+          score: newScore,
+          result,
+          currentStep: "result",
+        };
+      }
+
+      // Move to next question
+      return {
+        ...state,
+        answers: newAnswers,
+        score: newScore,
+        currentQuestionIndex: state.currentQuestionIndex + 1,
+      };
+    }
+
+    case "GO_BACK": {
+      if (state.currentQuestionIndex === 0) {
+        // Go back to welcome screen
+        return initialState;
+      }
+      // Go back one question and remove last answer
+      const newAnswers = state.answers.slice(0, -1);
+      const newScore = calculateScore(newAnswers);
+      return {
+        ...state,
+        currentQuestionIndex: state.currentQuestionIndex - 1,
+        answers: newAnswers,
+        score: newScore,
+      };
+    }
+
+    case "SHOW_CTA":
+      return {
+        ...state,
+        currentStep: "cta",
+      };
+
+    case "RESET_QUIZ":
+      return initialState;
+
+    default:
+      return state;
+  }
+}
 
 export default function Home() {
+  const [state, dispatch] = useReducer(quizReducer, initialState);
+
+  const handleStart = () => {
+    dispatch({ type: "START_QUIZ" });
+  };
+
+  const handleAnswer = (type: PersonalityType) => {
+    dispatch({ type: "ANSWER_QUESTION", payload: type });
+  };
+
+  const handleRestart = () => {
+    dispatch({ type: "RESET_QUIZ" });
+  };
+
+  const handleGoBack = () => {
+    dispatch({ type: "GO_BACK" });
+  };
+
+  const handleContinue = () => {
+    dispatch({ type: "SHOW_CTA" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="h-screen bg-background">
+      <AnimatePresence mode="wait">
+        {state.currentStep === "welcome" && (
+          <WelcomeScreen key="welcome" onStart={handleStart} />
+        )}
+
+        {state.currentStep === "question" && (
+          <QuestionScreen
+            key={`question-${state.currentQuestionIndex}`}
+            question={QUESTIONS[state.currentQuestionIndex]}
+            questionNumber={state.currentQuestionIndex + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            onAnswer={handleAnswer}
+            onGoBack={handleGoBack}
+          />
+        )}
+
+        {state.currentStep === "result" && state.result && (
+          <ResultScreen
+            key="result"
+            result={state.result}
+            onContinue={handleContinue}
+          />
+        )}
+
+        {state.currentStep === "cta" && (
+          <CTAScreen
+            key="cta"
+            onRestart={handleRestart}
+            autoResetDelay={180000} // 3 minutes
+          />
+        )}
+      </AnimatePresence>
+    </main>
   );
 }
