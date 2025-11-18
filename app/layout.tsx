@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { KioskWrapper } from "@/components/KioskWrapper";
 
 const a1Sans = localFont({
   src: [
@@ -48,6 +49,20 @@ export const metadata: Metadata = {
   title: "A1 Quiz - Napravi Pomak",
   description:
     "Otkrij svoj AI data personality tip na A1 Data Science konferenciji",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
+  themeColor: "#eb140a",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+  },
 };
 
 export default function RootLayout({
@@ -58,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="sr-RS">
       <body className={`${a1Sans.variable} ${a1Serif.variable} antialiased`}>
-        {children}
+        <KioskWrapper>{children}</KioskWrapper>
       </body>
     </html>
   );
