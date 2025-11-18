@@ -24,17 +24,6 @@ export function AdminExitDialog({ onClose }: AdminExitDialogProps) {
   }, [onClose]);
 
   const handleExit = () => {
-    // Show alert with instructions (since window.close() may not work in kiosk mode)
-    alert(
-      "DA ZATVORITE APLIKACIJU:\n\n" +
-        "1. Pritisnite: Ctrl + Alt + Delete\n" +
-        "2. Kliknite: Task Manager\n" +
-        "3. Pronađite: Google Chrome\n" +
-        "4. Kliknite: End task\n\n" +
-        "ILI:\n\n" +
-        "Pritisnite Windows tipku, zatim zatvorite Chrome.",
-    );
-
     // Attempt to close (may not work in kiosk mode, but worth trying)
     window.close();
 
@@ -75,8 +64,8 @@ export function AdminExitDialog({ onClose }: AdminExitDialogProps) {
         {/* Instructions */}
         <div className="mb-8 space-y-4 text-lg text-muted-foreground md:text-xl">
           <p>
-            Da zatvorite aplikaciju, pritisnite <strong>Ctrl + Alt + Delete</strong> i
-            zatim:
+            Da zatvorite aplikaciju, pritisnite{" "}
+            <strong>Ctrl + Alt + Delete</strong> i zatim:
           </p>
           <ol className="ml-6 list-decimal space-y-2">
             <li>Kliknite "Task Manager"</li>
