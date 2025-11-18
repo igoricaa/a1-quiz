@@ -86,7 +86,7 @@ export function AdminExitDialog({ onClose }: AdminExitDialogProps) {
             size="lg"
             className="flex-1 text-xl"
           >
-            Prikaži uputstva
+            Ugasi aplikaciju
           </Button>
           <Button
             onClick={onClose}
@@ -94,7 +94,7 @@ export function AdminExitDialog({ onClose }: AdminExitDialogProps) {
             size="lg"
             className="flex-1 text-xl"
           >
-            Otkaži
+            Odustani
           </Button>
         </div>
 
