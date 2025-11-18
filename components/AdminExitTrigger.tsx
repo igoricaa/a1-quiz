@@ -16,8 +16,8 @@ export function AdminExitTrigger() {
     const now = Date.now();
     const timeSinceLastTap = now - lastTapTimeRef.current;
 
-    // Reset counter if taps are too slow (more than 2 seconds between taps)
-    if (timeSinceLastTap > 2000) {
+    // Reset counter if taps are too slow (more than 5 seconds between taps)
+    if (timeSinceLastTap > 5000) {
       tapCountRef.current = 0;
     }
 
