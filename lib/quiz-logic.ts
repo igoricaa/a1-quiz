@@ -74,9 +74,9 @@ export function getPersonalityDetails(
       name: "Inovator",
       tagline: "Kreativni pioniri koji traže nove načine",
       advantage:
-        "Brzo spajaš ideje koje drugi uopšte ne povezuju. U stanju si da vidiš rešenje pre nego što i postoji problem — i to je tvoja supermoć.",
+        "Ti odlično povezuješ ideje koje deluju udaljeno. Često prepoznaš rešenje mnogo pre nego što izazov izađe na površinu - to je tvoja prava supermoć.",
       shift:
-        "Da bi tvoje ideje stvarno zaživele, potrebno je da povremeno „usporiš“ i definišeš samo jedan prioritet. Manje paralelnih pravaca = jači efekat tvoje inovacije.",
+        "Da bi tvoje ideje imale još veći efekat, ponekad vredi „usporiti“ i izabrati jedan ključni prioritet. Manje paralelnih pravaca - snažniji uticaj tvoje inovacije.",
       color: "var(--a1-magenta)",
     },
     ORGANIZATOR: {
@@ -86,7 +86,7 @@ export function getPersonalityDetails(
       advantage:
         "U haosu vidiš pravac. Ljudi se oslone na tebe kada treba nešto završiti tačno, brzo i bez nepotrebnih komplikacija.",
       shift:
-        "Tvoja najveća snaga može postati još jača kada dozvoliš malo više fleksibilnosti — ne mora svaki korak da bude predvidiv. Pusti 10% prostora za spontanost i tim brže stiže do rešenja.",
+        "Tvoja najveća snaga može postati još jača kada dozvoliš malo više fleksibilnosti - ne mora svaki korak da bude predvidiv. Pusti 10% prostora za spontanost i tako brže stigni do rešenja.",
       color: "var(--a1-magenta)",
     },
     HUMAN_FIRST: {
@@ -94,9 +94,9 @@ export function getPersonalityDetails(
       name: "Human First",
       tagline: "Empatični lideri fokusirani na ljude",
       advantage:
-        "Ti si srce svakog tima. Empatija, razumevanje i podrška tvoja su supermoć — znaš kako da spojiš ljude, smiriš situaciju i motivišeš druge da daju najbolje od sebe. Za tebe, napredak nikada nije samo u brojkama — već u ljudima koji stoje iza njih.",
+        "Ti si srce svakog tima. Empatija, razumevanje i podrška tvoja su supermoć - znaš kako da spojiš ljude, smiriš situaciju i motivišeš druge da daju najbolje od sebe. Za tebe, napredak nikada nije samo u brojkama - već u ljudima koji stoje iza njih.",
       shift:
-        "Ne zaboravi da i tvoja energija zaslužuje “recharge”. Dok brineš o drugima, napravi prostora i za sebe.",
+        "Ne zaboravi da i tvoja energija zaslužuje recharge. Dok brineš o drugima, napravi prostora i za sebe.",
       color: "var(--a1-magenta)",
     },
     STRATEG: {
@@ -104,9 +104,9 @@ export function getPersonalityDetails(
       name: "Strateg",
       tagline: "Vizionari koji planiraju budućnost",
       advantage:
-        "U svakoj situaciji vidiš strukturu, obrazac i logiku. Možeš brzo da proceniš šta ima smisla, a šta je gubljenje vremena — i zato drugi traže tvoj sud.",
+        "U svakoj situaciji brzo vidiš strukturu, obrazac i logiku. Jasno proceniš šta ima smisla, a šta je gubljenje vremena - zato drugi vole da čuju tvoje mišljenje.",
       shift:
-        "Ponekad ostaješ predugo u analizi. Sledeći korak za tebe je brže „zakucavanje” odluke i testiranje u realnosti — manje čekanja, više akcije donosi najbolji rezultat.",
+        "Ponekad se zadržiš predugo u analizi - vreme je da brže „zakucaš“ odluku i odmah je testiraš u realnosti. Manje čekanja, više akcije - bolji rezultati.",
       color: "var(--a1-magenta)",
     },
   };

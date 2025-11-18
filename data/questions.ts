@@ -1,4 +1,4 @@
-import type { Question } from '@/types/quiz';
+import type { Question } from "@/types/quiz";
 
 /**
  * The 3 quiz questions with their answer mappings
@@ -7,79 +7,79 @@ import type { Question } from '@/types/quiz';
 export const QUESTIONS: Question[] = [
   {
     id: 1,
-    text: 'Kad dobiješ novi zadatak, šta ti je prva misao?',
+    text: "Kad dobiješ novi zadatak, šta ti je prva misao?",
     answers: [
       {
-        id: 'A',
-        text: '„Ajmo nešto skroz drugačije… da vidimo šta sve može."',
-        type: 'INOVATOR',
+        id: "A",
+        text: '"Haj\'mo nešto skroz drugačije… da vidimo šta sve može."',
+        type: "INOVATOR",
       },
       {
-        id: 'B',
-        text: '„Ok, prvo pravim mini-plan da ne poginem usput."',
-        type: 'ORGANIZATOR',
+        id: "B",
+        text: '„Ok, prvo pravim mini plan."',
+        type: "ORGANIZATOR",
       },
       {
-        id: 'C',
-        text: '„Ko će sve da se cimaju oko ovoga? Da vidimo da im bude lakše."',
-        type: 'HUMAN_FIRST',
+        id: "C",
+        text: '„Koga sve uključujemo u projekat? Hajde da smislimo kako da olakšamo proces."',
+        type: "HUMAN_FIRST",
       },
       {
-        id: 'D',
-        text: '„Ček, ček… šta je cilj svega ovoga?"',
-        type: 'STRATEG',
+        id: "D",
+        text: '„Čekaj… šta je cilj svega ovoga?"',
+        type: "STRATEG",
       },
     ],
   },
   {
     id: 2,
-    text: 'Kako najviše voliš da radiš?',
+    text: "Kako najviše voliš da radiš?",
     answers: [
       {
-        id: 'A',
-        text: '„U fazonu—prepusti se vibe-u i improvizuj."',
-        type: 'INOVATOR',
+        id: "A",
+        text: '„U fazonu - prepusti se vajbu i improvizuj."',
+        type: "INOVATOR",
       },
       {
-        id: 'B',
+        id: "B",
         text: '„Ako nije u tabeli, ne postoji."',
-        type: 'ORGANIZATOR',
+        type: "ORGANIZATOR",
       },
       {
-        id: 'C',
-        text: '„S ekipom, da se međusobno dižemo i završavamo sve."',
-        type: 'HUMAN_FIRST',
+        id: "C",
+        text: '„S ekipom, da se međusobno podržavamo i završavamo sve."',
+        type: "HUMAN_FIRST",
       },
       {
-        id: 'D',
-        text: '„Daj mi brojke, ciljeve, logiku—i idemo."',
-        type: 'STRATEG',
+        id: "D",
+        text: '„Daj mi brojke, ciljeve, logiku - i idemo."',
+        type: "STRATEG",
       },
     ],
   },
   {
     id: 3,
-    text: 'Šta za tebe znači napraviti POMAK?',
+    text: "Šta za tebe znači napraviti pomak?",
     answers: [
       {
-        id: 'A',
+        id: "A",
         text: '„Probati nešto što još nisam, pa makar bilo haotično."',
-        type: 'INOVATOR',
+        type: "INOVATOR",
       },
       {
-        id: 'B',
+        id: "B",
         text: '„Uvesti sistem da sve ide brže i lakše."',
-        type: 'ORGANIZATOR',
+        type: "ORGANIZATOR",
       },
       {
-        id: 'C',
+        id: "C",
         text: '„Da se ljudi oko mene osećaju bolje zbog toga što sam uradio/la."',
-        type: 'HUMAN_FIRST',
+        type: "HUMAN_FIRST",
       },
       {
-        id: 'D',
+        id: "D",
         text: '„Potez koji menja situaciju na duže staze."',
-        type: 'STRATEG',
+        type: "STRATEG",
       },
     ],
   },

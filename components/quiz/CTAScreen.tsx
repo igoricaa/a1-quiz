@@ -83,13 +83,9 @@ export function CTAScreen({
       >
         <p className="font-sans text-2xl leading-relaxed text-foreground/90 md:text-3xl 3xl:text-4xl">
           Pošalji nam CV na email{" "}
-          <a
-            href="mailto:ljudskiresursi@a1.rs"
-            className="inline-flex items-center gap-2 font-bold text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
-          >
-            <Mail className="inline h-6 w-6" />
+          <span className="font-bold text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80">
             ljudskiresursi@a1.rs
-          </a>{" "}
+          </span>{" "}
           i priključi se projektima koji menjaju svakodnevicu na bolje.
         </p>
       </motion.div>

@@ -57,7 +57,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="font-sans text-2xl text-muted-foreground md:text-3xl lg:text-4xl 3xl:text-6xl"
         >
-          Dodirni ekran. AI od tebe počinje.
+          Dodirni ekran. AI - od tebe počinje.
         </motion.p>
       </div>
 
