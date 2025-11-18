@@ -66,7 +66,7 @@ export function ResultScreen({ result, onContinue }: ResultScreenProps) {
       <div className="grid grid-cols-2 gap-10 max-w-9/12 z-10 mt-13">
         {/* rgba(176, 66, 66, 0.15) */}
         <motion.div
-          className="flex flex-col justify-between gap-28 shadow-[0px_0px_10px_0px_rgba(176,66,66,0.15)] rounded-lg px-12.5 py-14 bg-background"
+          className="flex flex-col justify-between gap-10 shadow-[0px_0px_10px_0px_rgba(176,66,66,0.15)] rounded-lg px-12.5 py-14 bg-background"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -96,7 +96,7 @@ export function ResultScreen({ result, onContinue }: ResultScreenProps) {
 
         {/* Shift */}
         <motion.div
-          className="flex flex-col justify-between gap-28 shadow-[0px_0px_10px_0px_rgba(176,66,66,0.15)] rounded-lg px-12.5 py-14 bg-background"
+          className="flex flex-col justify-between gap-10 shadow-[0px_0px_10px_0px_rgba(176,66,66,0.15)] rounded-lg px-12.5 py-14 bg-background"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

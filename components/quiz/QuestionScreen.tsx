@@ -69,7 +69,7 @@ export function QuestionScreen({
       <GridGraphic />
 
       {/* Answer Buttons */}
-      <div className="flex w-full max-w-4xl flex-col gap-4">
+      <div className="flex w-full max-w-[950px] flex-col gap-4">
         <AnimatePresence mode="wait">
           {question.answers.map((answer, index) => (
             <motion.div
